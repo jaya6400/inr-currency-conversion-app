@@ -1,8 +1,14 @@
-# Getting Started with Create React App
+## Inr Conversion Application
+
+`Deployed on Vercel` : [<em>Website Link<em>](https://inr-currency-conversion-app.vercel.app/)
+
+![inr-currency-conversion-ui-output](https://github.com/user-attachments/assets/47dc1cd3-ec2e-4c45-8905-ff808013a540)
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
