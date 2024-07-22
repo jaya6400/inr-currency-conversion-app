@@ -1,4 +1,4 @@
-## Inr Conversion Application
+## Inr Currency Conversion Application
 
 `Deployed on Vercel` : [<em>Website Link<em>](https://inr-currency-conversion-app.vercel.app/)
 
