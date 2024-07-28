@@ -1,17 +1,41 @@
-require('dotenv').config()
-const ScrapingAntClient = require('@scrapingant/scrapingant-client');
+require('dotenv').config();
+const { ZenRows } = require("zenrows");
+//const CaptchaSolver = require('captcha-solver');
 
-apikeyvalue=process.env.API_KEY;
-const client = new ScrapingAntClient({ apiKey: `${apikeyvalue}`});
+apikeyvalue=process.env.Zenrows_API_KEY;
+
+(async () => {
+    const client = new ZenRows("${apikeyvalue}");
+    const url = "https://foservices.icegate.gov.in/#/services/viewExchangeRate";
+
+    //to resolve image-to-text captcha using npm library captcha-solver
+    //const solver = new CaptchaSolver('browser')
+    //const codes = await solver.solve()
+
+    try {
+        const { data } = await client.get(url, {
+			"js_render": "true",
+			"js_instructions": "[{\"click\":\".button-selector\"}]"
+        });
+        console.log(data);
+    } catch (error) {
+        console.error(error.message);
+        if (error.response) {
+            console.error(error.response.data);
+        }
+    }
+})();
+
+// require('dotenv').config()
+// const ScrapingAntClient = require('@scrapingant/scrapingant-client');
+
+// apikeyvalue=process.env.API_KEY;
+// const client = new ScrapingAntClient({ apiKey: `${apikeyvalue}`});
 
 // Scrape the icegate portal.
-client.scrape('https://foservices.icegate.gov.in/#/services/viewExchangeRate')
-    .then(res => console.log(res))
-    .catch(err => console.error(err.message));
-
-
-
-
+// client.scrape('https://foservices.icegate.gov.in/#/services/viewExchangeRate')
+//     .then(res => console.log(res))
+//     .catch(err => console.error(err.message));
 
 
 // Import the necessary libraries
